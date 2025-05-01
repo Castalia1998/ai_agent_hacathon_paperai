@@ -6,7 +6,7 @@ This code builds an application capable of searching the arXiv database to recom
 
 The agent is constructed using the Python language and the LangGraph framework, integrating DeepSeek-R1 as the LLM, and employing the arxivtools provided by LangGraph as the research paper search tool. Below is the basic structure of the agent:
 
-![build_graph](D:\work\CODE\aiagent\AI-Agents-Hackathon-2025-error-change-Apr27\AI-Agents-Hackathon-2025-error-change-Apr27\AI-Agents-Hackathon-2025-urania97-error\ai_agent_project\build_graph.png)
+![build_graph](build_graph.png)
 
 ## Backend Tech Stack
 
