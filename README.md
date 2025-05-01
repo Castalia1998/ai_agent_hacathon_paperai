@@ -101,9 +101,10 @@ The agent layer constructs the key graph structures of the agent:
 
 - **config.py**: Core application configuration (e.g., logging, CORS).
 
-## 🗂️ backend Structure
+## 🗂️ Structure
 
 ```
+Backend Structure
 ai_agent_project/
 ├── app/
 │   ├── api/                # API route definitions
@@ -115,7 +116,7 @@ ai_agent_project/
 ├── pdf_upload_count.json   # Upload count tracker
 └── README.md               # Project documentation
 
-### Frontend Structure
+Frontend Structure
 paper-ai/
 ├── app/                  # Next.js application directory
 │   ├── layout.tsx        # Main layout component
