@@ -39,7 +39,7 @@ From a UX perspective, the frontend is designed to minimize researchers’ cogni
 
 **Focus Guidance**: Frequent user actions occur on the left; visual attention is directed to the right. Panel sizes can be adjusted by dragging the separator.
 
-![ui design](ui design.png)
+![ui design](ui_design.png)
 
 ## Feature Guide
 
