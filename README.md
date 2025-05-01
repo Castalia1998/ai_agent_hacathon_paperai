@@ -1,5 +1,12 @@
+# ai_agent_paper_hackathon
 
-# Backend Documentation
+This code builds an application capable of searching the arXiv database to recommend relevant papers in related fields and conducting analysis on provided research papers.
+
+## AI_Agent Tech Stack
+
+The agent is constructed using the Python language and the LangGraph framework, integrating DeepSeek-R1 as the LLM, and employing the arxivtools provided by LangGraph as the research paper search tool. Below is the basic structure of the agent:
+
+![build_graph](D:\work\CODE\aiagent\AI-Agents-Hackathon-2025-error-change-Apr27\AI-Agents-Hackathon-2025-error-change-Apr27\AI-Agents-Hackathon-2025-urania97-error\ai_agent_project\build_graph.png)
 
 ## Backend Tech Stack
 
@@ -26,8 +33,16 @@ API route definitions that expose functionality to the frontend:
 Service layer handling business logic:
 
 - **pdf_parser.py**: Extracts metadata and structural content from PDF documents.
-- **ai_agent_paper_analysis.py**: AI agent logic for summarizing, questioning, and analyzing papers.
+- **ai_agent_paper_analysis.py**: Define the agent structure and build AI agent logic for summarizing, questioning, and analyzing papers.
 - **agent/**: Constructs multi-agent system including tool registration, routing logic, and task nodes.
+
+#### 📁 app/services/agent
+
+The agent layer constructs the key graph structures of the agent:
+
+- **build_agent.py**: Define and create basic agent.
+- **build_agent_node.py**: Translate the agent output into a format suitable for appending to the global state.
+- **build_router.py**：Define the router function.
 
 ### 📁 app/models
 
