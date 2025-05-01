@@ -116,8 +116,6 @@ ai_agent_project/
 └── README.md               # Project documentation
 
 ### Frontend Structure
-
-```
 paper-ai/
 ├── app/                  # Next.js application directory
 │   ├── layout.tsx        # Main layout component
@@ -139,9 +137,9 @@ paper-ai/
 ├── .env.local            # Local environment variables
 ├── next.config.mjs       # Next.js config
 └── package.json          # Project dependencies
-```
 
 ```
+
 
 ## 🚀 Getting Started
 
