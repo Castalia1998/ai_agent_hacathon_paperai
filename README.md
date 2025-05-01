@@ -1,98 +1,110 @@
-# Untitled
 
-# 前端开发说明文档
+# Frontend Documentation
 
-# 前端技术栈
+## Frontend Tech Stack
 
-我们选择了网页应用这一形式进行开发。考虑到前端服务的稳定性和开发过程的灵活可调节，我们采取如下技术框架，通过托管前端服务器让前端域名固定。这样做前后端分离的处理是为了让后端开发环境更加干净。
+We chose to develop a web-based application. To ensure service stability and a flexible development experience, we adopted the following tech stack and deployed the frontend separately with a fixed domain. This separation of frontend and backend keeps the backend environment clean and maintainable.
 
-- **前端框架**: Next.js 14 (React)
-- **样式**: Tailwind CSS
-- **状态管理**: React Context API
-- **API 通信**: Fetch API
-- **Markdown 渲染**: React Markdown
+- **Framework**: Next.js 14 (React)
+- **Styling**: Tailwind CSS
+- **State Management**: React Context API
+- **API Communication**: Fetch API
+- **Markdown Rendering**: React Markdown
 
-# 用户体验设计
+## User Experience Design
 
-从用户体验的视角出发，为了减少研究人员的认知负担，前端网页在设计时首要实现的是交互逻辑和ui的易读、便利、零学习成本。为此，网页布局简洁明了，逻辑清晰，能够让研究人员可以专注在论文分析上。由标题和左右可滑动分栏组成。
+From a UX perspective, the frontend is designed to minimize researchers’ cognitive load. The top priority is intuitive UI and clear interaction logic with zero learning curve. The layout is clean and simple, allowing users to focus on paper analysis. It consists of a title bar and resizable left-right panels.
 
-## 主要布局
+### Layout Overview
 
-**左侧面板** (默认宽度: 30%)集成了聊天助手和论文列表，可折叠以提供更多空间给主内容区域
+- **Left Panel** (default width: 30%): Contains the AI assistant and paper list. It is collapsible to free up space for the main content.
+- **Right Panel** (default width: 70%): Displays paper content and structured analysis.
 
-**右边面板** (默认宽度: 70%)集成了具体的论文内容和结构化分析
-
-**注意力引导**用户的频繁操作将集中在左侧，而视觉重心将集中在右侧，面板大小可通过拖动分隔线调整
+**Focus Guidance**: Frequent user actions occur on the left; visual attention is directed to the right. Panel sizes can be adjusted by dragging the separator.
 
 ![image.png](image.png)
 
-# 功能指南
+## Feature Guide
 
-配合这一基本layout，前端进行了具体功能的落地和深化。在功能开发方面，前端分为研究助手模块、论文管理模块、文本分析模块。
+Based on this layout, the frontend implements concrete features across three modules: Research Assistant, Paper Management, and Text Analysis.
 
-- **论文管理模块** - 上传论文，上传进度显示；查看论文列表，按标题、年份等排序论文； 安全删除和恢复功能，在回收站模态框中查看已删除的论文，可以选择要恢复或永久删除；批量操作，使用复选框选择多个论文进行批量操作，选择多个论文进行下载或删除；快速复制论文的标题、作者等信息
-- 研究助手模块-**聊天界面**与 AI 助手进行自然语言对话，在左侧面板中选择"研究助手"选项卡
-在底部输入框中输入问题；使用回形针图标直接在聊天中上传 PDF；**上下文感知；支持富文本格式的回复**
-- 文本编辑器模块-智能提取，自动提取标题、作者、摘要等，自动识别和提取论文的章节；生成论文的全面分析；使用刷新按钮更新分析内容；一键复制编辑器内容；自动保存编辑内容；**Markdown 支持，**包括代码块和表格
+- **Paper Management Module**: 
+  - Upload papers with progress indication
+  - View and sort the paper list by title, year, etc.
+  - Safe deletion and restore via recycle bin modal
+  - Batch operations: select multiple papers for bulk download or deletion
+  - Quick copy of paper info (title, authors, etc.)
 
-# 开发指南
+- **Research Assistant Module**: 
+  - Chat UI for natural language interaction with AI
+  - Access via the "Research Assistant" tab in the left panel
+  - Type queries in the bottom input field
+  - Upload PDFs directly in chat using the paperclip icon
+  - **Context-aware and rich text support in replies**
 
-## 项目结构
+- **Text Editor Module**: 
+  - Smart extraction of title, authors, abstract
+  - Automatic detection of paper sections
+  - Generate full paper analysis
+  - Refresh button to re-analyze
+  - One-click copy and auto-save of edited content
+  - **Supports Markdown**, including code blocks and tables
 
+## Development Guide
+
+### Project Structure
+
+```
 paper-ai/
-├── app/                  # Next.js 应用目录
-│   ├── layout.tsx        # 主布局组件
-│   ├── page.tsx          # 主页面组件
-│   └── globals.css       # 全局样式
-├── components/           # React 组件
-│   ├── chat-sidebar.tsx  # 聊天侧边栏组件
-│   ├── header.tsx        # 页眉组件
-│   ├── product-list.tsx  # 论文列表组件
-│   ├── text-editor.tsx   # 文本编辑器组件
-│   └── ...               # 其他组件
-├── lib/                  # 工具函数和 API 客户端
-│   ├── chat-api.ts       # 聊天 API 客户端
-│   ├── config.ts         # 应用配置
-│   ├── paper-api.ts      # 论文 API 客户端
-│   ├── paper-context.ts  # 论文上下文
-│   └── ...               # 其他工具函数
-├── public/               # 静态资源
-├── .env.local            # 本地环境变量
-├── next.config.mjs       # Next.js 配置
-└── package.json          # 项目依赖
+├── app/                  # Next.js application directory
+│   ├── layout.tsx        # Main layout component
+│   ├── page.tsx          # Main page component
+│   └── globals.css       # Global styles
+├── components/           # React components
+│   ├── chat-sidebar.tsx  # Chat sidebar
+│   ├── header.tsx        # Header
+│   ├── product-list.tsx  # Paper list
+│   ├── text-editor.tsx   # Text editor
+│   └── ...               # Other components
+├── lib/                  # Utility functions and API clients
+│   ├── chat-api.ts       # Chat API client
+│   ├── config.ts         # App configuration
+│   ├── paper-api.ts      # Paper API client
+│   ├── paper-context.ts  # Paper context
+│   └── ...               # Other utilities
+├── public/               # Static assets
+├── .env.local            # Local environment variables
+├── next.config.mjs       # Next.js config
+└── package.json          # Project dependencies
+```
 
-## 安装依赖
+### Install Dependencies
 
-```jsx
+```bash
 npm install
-# 或
+# or
 yarn install
 ```
 
-## 启动开发服务器
+### Start Development Server
 
-```jsx
+```bash
 npm run dev
-# 或
+# or
 yarn dev
 ```
 
-## 构建生产版本
+### Build Production Version
 
-```jsx
+```bash
 npm run build
-# 或
+# or
 yarn build
 ```
 
-## 设置环境变量
+### Set Environment Variables
 
-<aside>
-💡
-
-```jsx
-| NEXT_PUBLIC_BACKEND_URL | 后端 API 的 URL | https://api.example.com
-| ALLOWED_ORIGINS | 允许的源，用逗号分隔 | https://app.example.com,<https://dev.example.com>
+```bash
+| NEXT_PUBLIC_BACKEND_URL | Backend API base URL | https://api.example.com
+| ALLOWED_ORIGINS         | Allowed origins (comma-separated) | https://app.example.com,https://dev.example.com
 ```
-
-</aside>
