@@ -17,7 +17,7 @@ The backend is built with Python using the FastAPI framework. It utilizes Pydant
 - **Data Modeling**: Pydantic
 - **Architecture**: Modular (API / Services / Models / Core)
 - **Runtime**: ASGI-compatible (Uvicorn / Gunicorn / Docker)
-- 
+  
 - ## Frontend Tech Stack
 
 We chose to develop a web-based application. To ensure service stability and a flexible development experience, we adopted the following tech stack and deployed the frontend separately with a fixed domain. This separation of frontend and backend keeps the backend environment clean and maintainable.
